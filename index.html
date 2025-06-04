@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算物理课程优秀作业展示</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置 Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36D399',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm z-50 transition-all duration-300 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#title-page" class="text-primary font-bold text-xl flex items-center">
+                <i class="fa fa-calculator mr-2"></i>计算物理
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#title-page" class="text-dark hover:text-primary transition-colors">首页</a>
+                <a href="#projects-page" class="text-dark hover:text-primary transition-colors">优秀作业</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-dark hover:text-primary">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#title-page" class="text-dark hover:text-primary py-2 transition-colors">首页</a>
+                <a href="#projects-page" class="text-dark hover:text-primary py-2 transition-colors">优秀作业</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 标题页 -->
+    <section id="title-page" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+        <div class="container mx-auto px-4 py-16 text-center">
+            <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 hover-scale">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-primary mb-6 leading-tight text-shadow">
+                    欢迎来到计算物理课程<br>优秀作业展示
+                </h1>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8 rounded-full"></div>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-700 mb-10 leading-relaxed">
+                    本页面展示了计算物理课程中的优秀学生作业，这些作业展示了学生们在计算物理领域的创新思维和实践能力。
+                </p>
+                <a href="#projects-page" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <i class="fa fa-arrow-down mr-2"></i>浏览优秀作业
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 优秀作业展示页 -->
+    <section id="projects-page" class="min-h-screen bg-light pt-20 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">优秀作业展示</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    以下是本学期计算物理课程中的优秀作业，点击链接可查看详细内容。
+                </p>
+            </div>
+
+            <!-- 作业分类标签 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="filter-btn active bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">
+                    全部作业
+                </button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                    数值计算
+                </button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                    模拟仿真
+                </button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                    数据分析
+                </button>
+            </div>
+
+            <!-- 作业卡片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 作业卡片 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-blue-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-line-chart text-6xl text-primary/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">量子力学中的波函数模拟</h3>
+                        <p class="text-gray-600 mb-4 text-sm">使用Python模拟一维无限深势阱中的波函数，分析不同能量状态下的粒子分布。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2">模拟仿真</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 张三</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-05-12</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/quantum-wavefunction-simulation.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 作业卡片 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-green-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-area-chart text-6xl text-green-600/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">分子动力学模拟基础</h3>
+                        <p class="text-gray-600 mb-4 text-sm">实现了一个简单的分子动力学模拟程序，研究温度对粒子运动的影响。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full mr-2">模拟仿真</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 李四</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-04-28</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/molecular-dynamics.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 作业卡片 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-purple-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-calculator text-6xl text-purple-600/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">非线性方程的数值解法比较</h3>
+                        <p class="text-gray-600 mb-4 text-sm">对比了二分法、牛顿法和割线法求解非线性方程的效率和精度差异。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full mr-2">数值计算</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 王五</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-03-15</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/numerical-methods.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 作业卡片 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-orange-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-database text-6xl text-orange-600/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">蒙特卡洛方法计算积分</h3>
+                        <p class="text-gray-600 mb-4 text-sm">应用蒙特卡洛方法计算高维积分，并分析了采样点数对结果精度的影响。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full mr-2">数值计算</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 赵六</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-04-02</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/monte-carlo-integration.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 作业卡片 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-red-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-flask text-6xl text-red-600/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">热力学系统的统计物理模拟</h3>
+                        <p class="text-gray-600 mb-4 text-sm">使用Metropolis算法模拟二维Ising模型，研究相变现象和临界指数。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full mr-2">模拟仿真</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 钱七</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-05-05</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/ising-model-simulation.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 作业卡片 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+                    <div class="bg-teal-100 h-48 flex items-center justify-center">
+                        <i class="fa fa-bar-chart text-6xl text-teal-600/70"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">实验数据的拟合与分析</h3>
+                        <p class="text-gray-600 mb-4 text-sm">使用最小二乘法对实验数据进行拟合，比较了不同拟合模型的优劣。</p>
+                        <div class="flex items-center text-xs text-gray-500 mb-4">
+                            <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded-full mr-2">数据分析</span>
+                            <span class="flex items-center"><i class="fa fa-user mr-1"></i> 孙八</span>
+                            <span class="flex items-center ml-3"><i class="fa fa-calendar mr-1"></i> 2025-03-22</span>
+                        </div>
+                        <a href="https://github.com/yourusername/computational-physics/raw/main/projects/data-fitting-analysis.pdf" target="_blank" class="inline-block text-primary hover:text-primary/80 font-medium text-sm">
+                            <i class="fa fa-file-pdf-o mr-1"></i> 查看作业 PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页控件 -->
+            <div class="flex justify-center mt-12">
+                <nav class="inline-flex rounded-md shadow-sm" aria-label="Pagination">
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">上一页</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-primary text-sm font-medium text-white hover:bg-primary/90">
+                        1
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        2
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        3
+                    </a>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        ...
+                    </span>
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        8
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">下一页</span>
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-calculator mr-2"></i>计算物理
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        本网站展示了计算物理课程中的优秀学生作业，反映了学生们在计算物理领域的学习成果和创新能力。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-envelope text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#title-page" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#projects-page" class="text-gray-400 hover:text-white transition-colors">优秀作业</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">教师团队</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">北京市海淀区清华大学物理系</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-3 text-gray-400"></i>
+                            <a href="mailto:phy@tsinghua.edu.cn" class="text-gray-400 hover:text-white transition-colors">phy@tsinghua.edu.cn</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+86 10 6279 4321</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 清华大学物理系计算物理课程. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-3', 'shadow-sm');
+            } else {
+                navbar.classList.add('py-3', 'shadow-sm');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (menuToggle.querySelector('i').classList.contains('fa-bars')) {
+                menuToggle.querySelector('i').classList.remove('fa-bars');
+                menuToggle.querySelector('i').classList.add('fa-times');
+            } else {
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 作业筛选功能
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的活动状态
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+                });
+                
+                // 添加当前按钮的活动状态
+                button.classList.add('active', 'bg-primary', 'text-white');
+                button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                
+                // 这里可以添加实际的筛选逻辑
+                const filter = button.textContent.trim();
+                console.log(`筛选: ${filter}`);
+                // 实际项目中，你可以根据筛选条件显示/隐藏对应的作业卡片
+            });
+        });
+    </script>
+</body>
+</html>
+    
